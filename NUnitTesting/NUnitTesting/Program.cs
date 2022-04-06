@@ -1,34 +1,35 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NUnitTesting
 {
-    class TempConvert
+
+    class Program
     {
-       
-        public void CelsiusToFahrenheit()
+        static void Main(string[] args)
         {
-            double celsius, fahrenheit;
-            Console.WriteLine("Enter the Temperature in Celsius (°C) : ");
-            celsius = double.Parse(Console.ReadLine());
+            
+            Console.WriteLine("Enter a number");
+            double N = Convert.ToDouble(Console.ReadLine());
+            // L is the tolerence level
+            double L = 0.00001;
+            double t = N;
+            double sqRoot;
+            int count = 0;
 
-            fahrenheit = (celsius * 9) / 5 + 32;
-            Console.WriteLine("Temperature in Fahrenheit is (°F) : " + fahrenheit);
-        }
+            while (true)
+            {
+                count++;
+                sqRoot = 0.5 * (t + (N / t));
 
-       
-        public void FahrenheitToCelsius()
-        {
-            double fahrenheit, celsius;
-            Console.WriteLine("Enter the Temperature in Farhenheit(°F) : ");
-            fahrenheit = double.Parse(Console.ReadLine());
-
-            celsius = (fahrenheit - 32) * 5 / 9;
-            Console.WriteLine("Temperature in Celsius is (°C) : " + celsius);
+                if (Math.Abs(sqRoot - t) < L)
+                {
+                    break;
+                }
+                t = sqRoot;
+            }
+            Console.WriteLine("Root Value is : " + Math.Round(sqRoot, 2));
+            Console.ReadLine();
         }
     }
 }
