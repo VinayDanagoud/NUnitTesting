@@ -1,32 +1,34 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace NUnitTesting
 {
-    class Program
+    class TempConvert
     {
-        static void Main(string[] args)
+       
+        public void CelsiusToFahrenheit()
         {
-          
-            Console.WriteLine("Enter a Principal");
-            double principal = Convert.ToDouble(Console.ReadLine());
-            
-            Console.WriteLine("Enter Interest Rate");
-            double rate = Convert.ToDouble(Console.ReadLine());
-            
-            rate = (rate / 100) / 12;
-            
-            Console.WriteLine("Enter a Year");
-            int year = Convert.ToInt32(Console.ReadLine());
-            year = year * 12;
+            double celsius, fahrenheit;
+            Console.WriteLine("Enter the Temperature in Celsius (°C) : ");
+            celsius = double.Parse(Console.ReadLine());
 
-           
-            double pay = (principal * rate) / (1 - Math.Pow(1 + rate, -year));
-
-            Console.WriteLine("Payment " + pay);
-            Console.ReadLine();
+            fahrenheit = (celsius * 9) / 5 + 32;
+            Console.WriteLine("Temperature in Fahrenheit is (°F) : " + fahrenheit);
         }
 
+       
+        public void FahrenheitToCelsius()
+        {
+            double fahrenheit, celsius;
+            Console.WriteLine("Enter the Temperature in Farhenheit(°F) : ");
+            fahrenheit = double.Parse(Console.ReadLine());
+
+            celsius = (fahrenheit - 32) * 5 / 9;
+            Console.WriteLine("Temperature in Celsius is (°C) : " + celsius);
+        }
     }
 }
-
