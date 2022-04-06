@@ -4,32 +4,37 @@ using System;
 namespace NUnitTesting
 {
 
+
     class Program
     {
         static void Main(string[] args)
         {
-            
-            Console.WriteLine("Enter a number");
-            double N = Convert.ToDouble(Console.ReadLine());
-            // L is the tolerence level
-            double L = 0.00001;
-            double t = N;
-            double sqRoot;
-            int count = 0;
+          
+            int n, i;
 
-            while (true)
+           
+            int[] a = new int[10];
+
+            Console.Write("Enter the number to convert: ");
+            n = int.Parse(Console.ReadLine());
+         
+            for (i = 0; n > 0; i++)
             {
-                count++;
-                sqRoot = 0.5 * (t + (N / t));
-
-                if (Math.Abs(sqRoot - t) < L)
-                {
-                    break;
-                }
-                t = sqRoot;
+                a[i] = n % 2;
+                n = n / 2;
             }
-            Console.WriteLine("Root Value is : " + Math.Round(sqRoot, 2));
+
+
+            Console.Write("Binary of the given number= ");
+
+          
+            for (i = i - 1; i >= 0; i--)
+            {
+                Console.Write(a[i]);
+            }
             Console.ReadLine();
+
+
         }
     }
 }
